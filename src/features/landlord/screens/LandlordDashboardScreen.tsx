@@ -144,7 +144,7 @@ const LandlordDashboardScreen = () => {
   ];
 
   return (
-    <AppLayout title="Dashboard" headerBorder={true}>
+    <AppLayout title="Dashboard" headerBorder={true} isActionShown={true}>
       <View className="mb-4 px-1">
         <Text variant="heading" style="text-2xl font-bold">
           Welcome, John !

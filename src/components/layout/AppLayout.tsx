@@ -9,6 +9,7 @@ type AppLayoutProps = {
   backgroundColor?: string;
   title?: string;
   headerBorder?: boolean;
+  isActionShown?: boolean;
 };
 
 const AppLayout: React.FC<AppLayoutProps> = ({
@@ -18,6 +19,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({
   backgroundColor = 'bg-white',
   title,
   headerBorder = true,
+  isActionShown = false,
 }) => {
   return (
     <ScrollView className={`${backgroundColor}`}>
@@ -30,26 +32,34 @@ const AppLayout: React.FC<AppLayoutProps> = ({
           {title}
         </Text>
 
-        {/* Icons Section */}
-        <View className="flex-row items-center space-x-4">
-          {/* Notification Icon */}
-          <TouchableOpacity
-            onPress={() => {}}
-            className="border border-fontPrimary p-1 rounded-lg shadow-xl">
-            <Icon name="notifications" size={24} className="text-fontPrimary" />
-          </TouchableOpacity>
+        {isActionShown && (
+          <>
+            {/* Icons Section */}
+            <View className="flex-row items-center space-x-4">
+              {/* Notification Icon */}
+              <TouchableOpacity
+                onPress={() => {}}
+                className="border border-fontPrimary p-1 rounded-lg shadow-xl">
+                <Icon
+                  name="notifications"
+                  size={24}
+                  className="text-fontPrimary"
+                />
+              </TouchableOpacity>
 
-          {/* Profile Icon */}
-          <TouchableOpacity
-            onPress={() => {}}
-            className="border border-fontPrimary p-1 rounded-lg shadow-xl">
-            <Icon
-              name="person-outline"
-              size={24}
-              className="text-fontPrimary"
-            />
-          </TouchableOpacity>
-        </View>
+              {/* Profile Icon */}
+              <TouchableOpacity
+                onPress={() => {}}
+                className="border border-fontPrimary p-1 rounded-lg shadow-xl">
+                <Icon
+                  name="person-outline"
+                  size={24}
+                  className="text-fontPrimary"
+                />
+              </TouchableOpacity>
+            </View>
+          </>
+        )}
       </View>
       <View className={`${padding && 'p-4'} ${margin && 'm-4'}`}>
         {children}

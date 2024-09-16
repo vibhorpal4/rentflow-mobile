@@ -1,11 +1,24 @@
 import {View, Text} from 'react-native';
 import React from 'react';
+import AppLayout from '../../../components/layout/AppLayout';
+import Button from '../../../components/common/Button';
+import {useAppDispatch} from '../../../hooks';
+import {setInterface} from '../../../stores/slices/commonSlice';
+import {AppInterfaceEnum} from '../../../enums';
 
 const LandlordSettingScreen = () => {
+  const dispatch = useAppDispatch();
+  const switchInterface = () => {
+    dispatch(setInterface(AppInterfaceEnum.TENANT));
+  };
   return (
-    <View>
-      <Text>LandlordSettingScreen</Text>
-    </View>
+    <AppLayout title="Settings">
+      <Button
+        onPress={switchInterface}
+        title="Switch to tenant"
+        variant="secondary"
+      />
+    </AppLayout>
   );
 };
 

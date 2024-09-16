@@ -19,13 +19,15 @@ const InputField: React.FC<InputFieldProps> = ({
 }) => {
   return (
     <View className="mb-4">
-      <Text className="text-fontHeading font-heading mb-1">{label}</Text>
+      {label && (
+        <Text className="text-fontHeading font-heading mb-1">{label}</Text>
+      )}
       <TextInput
         value={value}
         onChangeText={onChangeText}
         placeholder={placeholder}
         secureTextEntry={secureTextEntry}
-        className="border border-borderPrimary rounded-md p-3 text-fontPrimary"
+        className="border border-borderPrimary rounded-lg p-3 text-fontPrimary"
       />
     </View>
   );

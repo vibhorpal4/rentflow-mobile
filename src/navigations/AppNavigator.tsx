@@ -16,7 +16,6 @@ const AppNavigator = () => {
   dispatch(login());
   console.log({isAuthenticated});
   console.log({appInterface});
-  dispatch(setInterface(AppInterfaceEnum.TENANT));
   return (
     <NavigationContainer>
       {isAuthenticated ? (
